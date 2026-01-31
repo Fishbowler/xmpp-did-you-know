@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Did You Know? – XMPP</title>
+
+    <style>
+        /* --- Reset / base --- */
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            background: #0b1c2d;
+            color: #ffffff;
+            /*
+            font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+            */
+            font-family: "Inter", sans-serif;
+            overflow: hidden;
+
+            /* Critical layout */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- Header --- */
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 40px 60px;
+            flex-shrink: 0;
+        }
+
+        .header img {
+            height: 96px;
+        }
+
+        .header h1 {
+            font-size: 72px;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        /* --- Facts area fills remaining space --- */
+        .facts-wrapper {
+            flex: 1;
+            /* take remaining height */
+            display: flex;
+            align-items: center;
+            /* vertical centering */
+            overflow: hidden;
+        }
+
+        /* --- Horizontal slider --- */
+        .facts-track {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            transition: transform 1s ease-in-out;
+        }
+
+        .fact {
+            flex: 0 0 100%;
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            /* vertical center text */
+            justify-content: center;
+            /* horizontal center text */
+
+            font-size: 96px;
+            text-align: center;
+            padding: 0 80px;
+            box-sizing: border-box;
+
+            white-space: normal;
+            /* allow wrapping */
+            line-height: 1.2;
+            /* improves readability at large sizes */
+            min-width: 100vw;
+            max-width: 80ch;
+            /* optional: prevents ultra-wide lines */
+        }
+
+        .fact-text {
+            width: 80vw;
+            /* wrap relative to screen, not parent */
+            max-width: 80vw;
+            white-space: normal;
+            line-height: 1.2;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="header">
+        <img src="https://xmpp.org/images/logos/xmpp-logo.svg" alt="XMPP Logo">
+        <h1>Did You Know?</h1>
+    </div>
+
+    <div class="facts-wrapper">
+        <div class="facts-track" id="factsTrack">
+            <div class="fact">
+                <div class="fact-text">XMPP recently celebrated its 27th birthday - it was originally announced on SlashDot on 4th Jan 1999</div>
+            </div>
+            <div class="fact">
+                <div class="fact-text">XMPP was originally called Jabber - it changed in 2007</div>
+            </div>
+            <div class="fact">
+                <div class="fact-text">XMPP backs the chat in Fortnite, played by over 100 million players</div>
+            </div>
+            <div class="fact">
+                <div class="fact-text">XMPP powers the push notifications on the Nintendo Switch</div>
+            </div>
+            <div class="fact">
+                <div class="fact-text">There's an XMPP server in Antarctica that coordinated humanity's first photo of a black hole</div>
+            </div>
+            <div class="fact">
+                <div class="fact-text">NATO use XMPP for getting wounded soldiers from the battlefield</div>
+            </div>
+            <div class="fact">
+                <div class="fact-text">XMPP has been used in remote controlled cars. Mostly, toy ones.</div>
+            </div>
+            <div class="fact">
+                <div class="fact-text">XMPP sucks. It's used in robot vacuum cleaners.</div>
+            </div>
+            <div class="fact">
+                <div class="fact-text">Jitsi and Zoom uses XMPP for their video conferencing signalling</div>
+            </div>
+            <div class="fact">
+                <div class="fact-text">Compost Party is a solar powered phone running an XMPP server, amongst other things</div>
+            </div>
+            <div class="fact">
+                <div class="fact-text">XMPP has cross-client social blogging and stories</div>
+            </div>
+            <div class="fact">
+                <div class="fact-text">The Nintendo Wii once ran an XMPP server</div>
+            </div>
+            <div class="fact">
+                <div class="fact-text">XMPP is being considered for deep-space communications, as part of the IETF TIPTOP working group.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const track = document.getElementById("factsTrack");
+        const facts = document.querySelectorAll(".fact");
+        let index = 0;
+
+        setInterval(() => {
+            index = (index + 1) % facts.length;
+            track.style.transform = `translateX(-${index * 100}%)`;
+        }, 5000); // 5 seconds per fact
+    </script>
+</body>
+
+</html>
