@@ -6,18 +6,14 @@
     <title>Did You Know? – XMPP</title>
 
     <style>
-        html,
-        body {
-            height: 100%;
-        }
+        html, body { height: 100%; }
 
         body {
             margin: 0;
             background: #0b1c2d;
-            color: #ffffff;
+            color: #fff;
             font-family: "Inter", sans-serif;
             overflow: hidden;
-
             display: flex;
             flex-direction: column;
         }
@@ -30,15 +26,8 @@
             flex-shrink: 0;
         }
 
-        .header img {
-            height: 96px;
-        }
-
-        .header h1 {
-            font-size: 72px;
-            margin: 0;
-            font-weight: 700;
-        }
+        .header img { height: 96px; }
+        .header h1 { font-size: 72px; margin: 0; font-weight: 700; }
 
         .facts-wrapper {
             flex: 1;
@@ -49,9 +38,10 @@
 
         .facts-track {
             display: flex;
-            height: 100%;
             width: 100%;
+            height: 100%;
             transition: transform 1s ease-in-out;
+            will-change: transform;
         }
 
         .fact {
@@ -60,30 +50,21 @@
 
             display: flex;
             align-items: center;
-            /* vertical center text */
             justify-content: center;
-            /* horizontal center text */
-
-            font-size: 96px;
-            text-align: center;
-            padding: 0 80px;
+            padding: 0 5vw;
             box-sizing: border-box;
 
-            white-space: normal;
-            line-height: 1.2;
-            min-width: 100vw;
-            max-width: 80ch;
         }
 
         .fact-text {
-            width: 80vw;
-            max-width: 80vw;
+            width: 100%;
+            max-width: 80ch;
             white-space: normal;
+            font-size: clamp(20px, 5vw, 96px);
             line-height: 1.2;
             text-align: center;
             margin: 0 auto;
         }
-
     </style>
 
 </head>
